@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abarrotería La Cresta</title>
+<style>
+:root{--bg:#fffef9;--ink:#1b2a22;--mut:#55645b;--verde:#1d6a47;--sol:#ffc531;--rojo:#d63b2f;--card:#f3f1e4;--line:#d9d6c3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#13201a;--ink:#f4f1e2;--mut:#b3bfb6;--verde:#59c28d;--card:#1c2e25;--line:#31473b;--rojo:#ff7366}}
+:root[data-theme="dark"]{--bg:#13201a;--ink:#f4f1e2;--mut:#b3bfb6;--verde:#59c28d;--card:#1c2e25;--line:#31473b;--rojo:#ff7366}
+html{scroll-padding-top:calc(70px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:Impact,"Arial Black",sans-serif;font-weight:400;margin:0;line-height:1.1}
+button{font:inherit;cursor:pointer}:focus-visible{outline:3px solid var(--rojo);outline-offset:2px}
+.w{max-width:1050px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 16px;max-width:1050px;margin:0 auto}
+.logo{font-family:Impact,"Arial Black",sans-serif;font-size:24px;color:var(--verde);line-height:1;text-decoration:none}.logo small{display:block;font:700 11px system-ui;color:var(--mut)}
+.top input{flex:1;min-width:160px;order:3;width:100%;padding:9px 14px;border-radius:99px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
+@media(min-width:760px){.top input{order:0;width:auto}}
+nav{margin-left:auto;display:flex;gap:2px;align-items:center;flex-wrap:wrap}nav a{padding:8px 10px;font-weight:700;text-decoration:none;font-size:14px}
+.cartbtn{background:var(--verde);color:#fff;border:0;border-radius:99px;padding:9px 14px;font-weight:800}
+.hero{background:var(--sol);color:#1b2a22;padding:48px 0}.hero h1{font-size:clamp(34px,8vw,64px);max-width:700px}.hero p{max-width:520px;font-size:18px}
+.btn{display:inline-block;background:#1b2a22;color:#fff;padding:12px 22px;border-radius:99px;font-weight:800;text-decoration:none;border:0}
+section{padding:40px 0}h2{font-size:28px;color:var(--verde);margin-bottom:14px}
+.cats{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin:10px 0}.cats button{white-space:nowrap;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:7px 14px;border-radius:99px;font-weight:700}.cats button[aria-pressed=true]{background:var(--verde);color:#fff;border-color:var(--verde)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px}
+.card{background:var(--card);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:4px}
+.ph{aspect-ratio:4/3;background:var(--bg);border-radius:10px;display:grid;place-items:center;font-size:44px;position:relative}
+.tag{position:absolute;top:6px;left:6px;background:var(--sol);color:#1b2a22;font:800 10px system-ui;padding:2px 8px;border-radius:99px}
+.price{font-size:18px;font-weight:800}.ok{font-size:12px;font-weight:700;color:var(--verde)}.no{color:var(--rojo)}
+.card button{margin-top:auto;border:0;background:var(--verde);color:#fff;border-radius:99px;padding:9px;font-weight:800}.card button:disabled{opacity:.4;cursor:not-allowed}
+.two{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.box{background:var(--card);border-radius:14px;padding:16px}
+.box h3{font-size:18px;margin-bottom:6px}.box p{margin:0;color:var(--mut)}
+.empty{border:2px dashed var(--line);border-radius:14px;padding:22px;color:var(--mut)}
+footer{background:#1b2a22;color:#f4f1e2;padding:28px 0;font-size:14px}footer b{font-family:Impact,sans-serif;font-weight:400;font-size:22px;color:var(--sol)}
+#ov{position:fixed;inset:0;background:#0008;display:none;justify-content:flex-end;z-index:20}#ov.on{display:flex}
+aside{background:var(--bg);width:100%;max-width:420px;height:100%;overflow:auto;padding:16px;padding-top:calc(16px + env(safe-area-inset-top,0px))}
+.ln{padding:10px 0;border-bottom:1px solid var(--line)}.q{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:4px}.q button{width:30px;height:30px;border-radius:50%;border:0;background:var(--card);color:var(--ink);font-weight:800}
+aside label{display:block;font-weight:700;font-size:14px;margin-top:8px}aside input,aside textarea{width:100%;padding:9px;border:2px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+.wa{width:100%;margin-top:12px;background:#25D366;color:#fff;border:0;border-radius:99px;padding:13px;font-weight:800}
+pre{white-space:pre-wrap;background:var(--card);padding:10px;border-radius:8px;font-size:13px}.err{color:var(--rojo);font-weight:700;font-size:14px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<header><div class="top">
+<a class="logo" href="#inicio">LA CRESTA<small>Abarrotería</small></a>
+<input id="q" type="search" placeholder="Buscar productos" aria-label="Buscar productos">
+<nav><a href="#productos">Productos</a><a href="#ofertas">Ofertas</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a><button class="cartbtn" id="open">🛒 <span id="n">0</span></button></nav>
+</div></header>
+
+<div class="hero" id="inicio"><div class="w"><h1 id="t-titulo"></h1><p id="t-texto"></p><a class="btn" href="#productos">Ver productos</a></div></div>
+
+<section id="productos"><div class="w"><h2>Productos</h2>
+<div class="cats" id="cats" role="group" aria-label="Categorías"></div>
+<div class="grid" id="grid"></div></div></section>
+
+<section id="ofertas" style="padding-top:0"><div class="w"><h2>Ofertas</h2>
+<div class="empty">Aquí aparecerán las promociones de la semana. Por ahora no hay ofertas configuradas.</div></div></section>
+
+<section id="servicios" style="padding-top:0"><div class="w"><h2>Servicios</h2>
+<div class="two" id="t-servicios"></div></div></section>
+
+<section id="contacto" style="padding-top:0"><div class="w"><h2>Contacto</h2>
+<div class="two" id="t-contacto"></div></div></section>
+
+<footer><div class="w"><b>LA CRESTA</b><p id="t-pie"></p></div></footer>
+
+<div id="ov"><aside role="dialog" aria-label="Carrito"><div class="q"><h2 style="margin:0">Tu carrito</h2><button id="close" aria-label="Cerrar">✕</button></div><div id="lines"></div><div id="form"></div></aside></div>
+
+<script>
+// =====================================================================
+//  EDITA SOLO ESTA PARTE (hasta la línea "FIN DE LO EDITABLE")
+//  Cambia lo que está entre comillas "..." y no borres comillas ni comas.
+// =====================================================================
+var NEGOCIO = {
+  whatsapp: "PENDIENTE",              // 507 + 8 números, ejemplo: "50761234567"
+  titulo: "Abarrotería La Cresta",    // título grande de la portada
+  texto: "Todo lo que necesitas, en un solo lugar. Elige tus productos, arma tu carrito y envía el pedido por WhatsApp.",
+  ubicacion: "La Cresta, Cuatro Altos, Colón, Panamá.",
+  horario: "Pendiente de configurar.", // ejemplo: "Lunes a sábado 7:00 a.m. - 8:00 p.m."
+  pie: "Abarrotería La Cresta · La Cresta, Cuatro Altos, Colón, Panamá. Los pedidos se coordinan y confirman por WhatsApp."
+};
+var SERVICIOS = [
+  { titulo: "Fotocopias",  texto: "Consulta por WhatsApp para pedir tus copias." },
+  { titulo: "Impresiones", texto: "Envíanos tu documento y coordinamos la impresión." },
+  { titulo: "Delivery",    texto: "Pedidos y entregas coordinadas por WhatsApp. Te confirmamos costo y tiempo." }
+];
+// Categorías: [clave, nombre que se ve]. La clave se usa en cada producto.
+var CATS = [["todas","Todas"],["abarrotes","Abarrotes y alimentos"],["snacks","Galletas y golosinas"],["bebidas","Bebidas"],["limpieza","Limpieza"],["hogar","Hogar"]];
+// Productos. precio en balboas (1.50 = B/. 1.50). stock 0 = agotado.
+// foto: sube la imagen a la carpeta "fotos" de GitHub y escribe "fotos/nombre.jpg". Si la dejas "", se usa el icono.
+// Quita  ejemplo:true  cuando el producto sea real.
+var PRODUCTOS = [
+  { id:"a1", nombre:"Arroz (ejemplo)",       categoria:"abarrotes", precio:1.50, stock:20, foto:"", icono:"🍚", ejemplo:true },
+  { id:"a2", nombre:"Aceite (ejemplo)",      categoria:"abarrotes", precio:2.75, stock:10, foto:"", icono:"🫒", ejemplo:true },
+  { id:"a3", nombre:"Frijoles (ejemplo)",    categoria:"abarrotes", precio:1.20, stock:0,  foto:"", icono:"🫘", ejemplo:true },
+  { id:"s1", nombre:"Galletas (ejemplo)",    categoria:"snacks",    precio:0.80, stock:30, foto:"", icono:"🍪", ejemplo:true },
+  { id:"s2", nombre:"Golosinas (ejemplo)",   categoria:"snacks",    precio:0.60, stock:25, foto:"", icono:"🍬", ejemplo:true },
+  { id:"b1", nombre:"Agua (ejemplo)",        categoria:"bebidas",   precio:0.50, stock:40, foto:"", icono:"💧", ejemplo:true },
+  { id:"b2", nombre:"Jugo (ejemplo)",        categoria:"bebidas",   precio:0.95, stock:15, foto:"", icono:"🧃", ejemplo:true },
+  { id:"l1", nombre:"Detergente (ejemplo)",  categoria:"limpieza",  precio:3.25, stock:12, foto:"", icono:"🧴", ejemplo:true },
+  { id:"l2", nombre:"Cloro (ejemplo)",       categoria:"limpieza",  precio:1.80, stock:8,  foto:"", icono:"🧽", ejemplo:true },
+  { id:"h1", nombre:"Escoba (ejemplo)",      categoria:"hogar",     precio:4.00, stock:6,  foto:"", icono:"🧹", ejemplo:true }
+];
+// ============================ FIN DE LO EDITABLE ============================
+var $=function(i){return document.getElementById(i)};
+var WHATSAPP = NEGOCIO.whatsapp;
+var P = PRODUCTOS.map(function(a){return{id:a.id,name:a.nombre,cat:a.categoria,cents:Math.round(a.precio*100),stock:a.stock,icon:a.icono,foto:a.foto,demo:a.ejemplo}});
+function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
+function textos(){
+  $("t-titulo").textContent=NEGOCIO.titulo;$("t-texto").textContent=NEGOCIO.texto;$("t-pie").textContent=NEGOCIO.pie;
+  document.title=NEGOCIO.titulo;
+  $("t-servicios").innerHTML=SERVICIOS.map(function(x){return '<div class="box"><h3>'+esc(x.titulo)+'</h3><p>'+esc(x.texto)+'</p></div>'}).join("");
+  $("t-contacto").innerHTML='<div class="box"><h3>Ubicación</h3><p>'+esc(NEGOCIO.ubicacion)+'</p></div><div class="box"><h3>Horario</h3><p>'+esc(NEGOCIO.horario)+'</p></div>';
+}
+var cart={},cat="todas";
+try{cart=JSON.parse(localStorage.getItem("cresta")||"{}")||{}}catch(e){cart={}}
+function save(){try{localStorage.setItem("cresta",JSON.stringify(cart))}catch(e){}}
+function B(c){return "B/. "+(c/100).toFixed(2)}
+function norm(s){return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()}
+function find(id){return P.filter(function(p){return p.id===id})[0]}
+function lines(){return Object.keys(cart).map(function(id){var p=find(id);if(!p||p.stock<=0)return null;var q=Math.min(cart[id],p.stock);return q>0?{p:p,q:q,sub:p.cents*q}:null}).filter(Boolean)}
+function setQ(id,q){var p=find(id);q=Math.min(q,p.stock);if(q<=0)delete cart[id];else cart[id]=q;save();draw()}
+function drawCats(){$("cats").innerHTML=CATS.map(function(c){return '<button aria-pressed="'+(cat===c[0])+'" data-c="'+c[0]+'">'+c[1]+'</button>'}).join("")}
+function drawGrid(){var t=norm($("q").value.trim());var l=P.filter(function(p){return(cat==="todas"||p.cat===cat)&&(!t||norm(p.name).indexOf(t)>-1)});
+$("grid").innerHTML=l.length?l.map(function(p){var o=p.stock<=0;return '<div class="card"><div class="ph">'+(p.demo?'<span class="tag">Demostración</span>':'')+(p.foto?'<img src="'+esc(p.foto)+'" alt="'+esc(p.name)+'" style="width:100%;height:100%;object-fit:cover;border-radius:10px">':p.icon)+'</div><b>'+esc(p.name)+'</b><span class="price">'+B(p.cents)+'</span><span class="ok '+(o?"no":"")+'">'+(o?"Agotado":"Disponible")+'</span><button data-a="'+p.id+'"'+(o?" disabled":"")+'>Agregar al carrito</button></div>'}).join(""):'<p>No encontramos productos con esa búsqueda.</p>'}
+function draw(){var L=lines();$("n").textContent=L.reduce(function(s,l){return s+l.q},0);
+if(!L.length){$("lines").innerHTML='<p>Aún no has agregado productos.</p>';$("form").innerHTML='';return}
+var tot=L.reduce(function(s,l){return s+l.sub},0);
+$("lines").innerHTML=L.map(function(l){return '<div class="ln"><b>'+l.p.name+'</b> <small>'+B(l.p.cents)+' c/u</small><div class="q"><span><button data-m="'+l.p.id+'" aria-label="Menos">−</button> <b>'+l.q+'</b> <button data-p="'+l.p.id+'" aria-label="Más">+</button> <button data-d="'+l.p.id+'" aria-label="Quitar">🗑</button></span><b>'+B(l.sub)+'</b></div></div>'}).join("")+'<p style="font-size:18px"><b>Subtotal: '+B(tot)+'</b><br><small>El envío no está incluido; se confirma por WhatsApp.</small></p>';
+if(!$("fn"))$("form").innerHTML='<label>Nombre *<input id="fn"></label><label>Teléfono (opcional)<input id="ft" inputmode="tel"></label><label>Zona de entrega *<input id="fz"></label><label>Dirección o referencia<input id="fd"></label><label>Indicaciones<textarea id="fi" rows="2"></textarea></label><p class="err" id="er"></p><button class="wa" id="go">Realizar pedido por WhatsApp</button><div id="pv"></div>'}
+document.addEventListener("click",function(e){var t=e.target.closest("button");if(!t)return;var d=t.dataset;
+if(d.c){cat=d.c;drawCats();drawGrid()}
+if(d.a){setQ(d.a,(cart[d.a]||0)+1)}
+if(d.p)setQ(d.p,(cart[d.p]||0)+1);if(d.m)setQ(d.m,(cart[d.m]||0)-1);if(d.d)setQ(d.d,0);
+if(t.id==="open"){$("ov").classList.add("on");draw()}if(t.id==="close")$("ov").classList.remove("on");
+if(t.id==="go"){var L=lines(),nm=$("fn").value.trim(),z=$("fz").value.trim();
+if(!nm||!z){$("er").textContent="Escribe tu nombre y la zona de entrega.";return}
+var m=["Hola, quiero hacer un pedido en Abarrotería La Cresta.","","Cliente: "+nm];if($("ft").value.trim())m.push("Teléfono: "+$("ft").value.trim());
+m.push("","Pedido:");var tot=0;L.forEach(function(l){tot+=l.sub;m.push("• "+l.p.name+" x"+l.q+" — "+B(l.p.cents)+" c/u = "+B(l.sub))});
+m.push("","Subtotal de los artículos: "+B(tot),"(No incluye envío; se confirma por WhatsApp.)","","Zona de entrega: "+z);
+if($("fd").value.trim())m.push("Dirección/referencia: "+$("fd").value.trim());if($("fi").value.trim())m.push("Indicaciones: "+$("fi").value.trim());
+var txt=m.join("\n");
+if(/^507\d{8}$/.test(WHATSAPP)){$("er").textContent="";window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(txt),"_blank","noopener")}
+else{$("er").textContent="Vista previa: el número de WhatsApp aún no está configurado. Así quedaría el mensaje:";$("pv").innerHTML="<pre></pre>";$("pv").firstChild.textContent=txt}}});
+$("q").addEventListener("input",function(){cat="todas";drawCats();drawGrid()});
+textos();drawCats();drawGrid();draw();
+</script></body></html>
